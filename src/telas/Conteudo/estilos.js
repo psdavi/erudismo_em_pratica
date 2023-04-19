@@ -19,12 +19,26 @@ export default StyleSheet.create({
     textAlign: "justify",
 
   },
-  aplicacao: {
+  aplicacaoTitle: {
+    color: color.black,
+    fontSize: 16,
+    fontFamily: "sans-serif-condensed",
+    textAlign: "center",
+    padding: 10,
+  },
+
+  aplicacaoContent: {
     color: color.black,
     fontSize: 12,
     fontFamily: "ArvoBold",
     textAlign: "center",
     padding: 10,
+  },
+
+  aplicacaoResume: {
+    color: color.black,
+    fontSize: 11,
+    fontFamily: "ArvoRegular"
   },
 
 

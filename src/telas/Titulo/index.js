@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ActivityIndicator, FlatList, StyleSheet, TextInput } from "react-native";
 import Item from "./item";
-import { Conteudo } from "../../../noticias";
+import { Conteudo } from "../../../dicionario";
 
 
 export default function Titulo(item) {
