@@ -50,8 +50,11 @@ export default StyleSheet.create({
     marginTop: 20
   },
   footerText: {
-    color: 'white',
-    marginBottom: 80
+    color: color.black,
+    fontSize: 16,
+    fontFamily: "sans-serif-condensed",
+    textAlign: "center",
+    padding: 10,
 
   },
 });

@@ -2,7 +2,8 @@ import React from "react";
 import { ScrollView, Text, TouchableOpacity, View, Button, StyleSheet } from "react-native";
 import estilos from "./estilos";
 import { useNavigation } from "@react-navigation/native";
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 
 export default function Conteudo({ route }) {
@@ -70,9 +71,13 @@ export default function Conteudo({ route }) {
             </Text>
             </Text>
 
-            <Text style={estilos.footerText}>Rodape{"\n"}  <Text>
+            
+
+            <TouchableOpacity onPress={() => {  }}>
+            <Text style={estilos.footerText}>Reportar esta palavra<Icon name="report" size={24} color="red" />{"\n"}  <Text>
             </Text>
             </Text>
+        </TouchableOpacity>
 
         </ScrollView>
 
