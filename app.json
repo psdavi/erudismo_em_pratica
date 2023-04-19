@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Erudismo em Prática",
+    "slug": "erudismo_em_pratica",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/img/ico_head_splash.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/img/head_splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#428a41"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
