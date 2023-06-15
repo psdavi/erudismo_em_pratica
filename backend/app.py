@@ -4,6 +4,7 @@ from os import environ
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
+app.run(host='0.0.0.0', port=4000)
 db = SQLAlchemy(app)
 
 class Palavra(db.Model):
