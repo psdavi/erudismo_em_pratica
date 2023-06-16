@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, View } from "react-native";
 import estilos from "./estilos";
 
 
-export default function Item({ conteudo, titulo, aplicacao,  }) {
+export default function Item({ conteudo, titulo, aplicacao  }) {
     const navigation = useNavigation();
 
     return <>

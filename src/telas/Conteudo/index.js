@@ -36,14 +36,10 @@ export default function Conteudo({ route }) {
 
             <Text style={estilos.dados}><Text style={estilos.nome}>{conteudo}</Text></Text>
 
-            <Text>
-            </Text>
 
 
-
-            <Text style={estilos.aplicacaoTitle}> Aplicação 1:{"\n"}{"\n"}  <Text>
-                <Text style={estilos.aplicacaoContent}>{aplicacao.app1.frase}{"\n"}{"\n"}</Text>
-                <Text style={estilos.aplicacaoResume}>{aplicacao.app1.resumo}</Text>
+    {/*         <Text style={estilos.aplicacaoTitle}> Aplicação 1:{"\n"}{"\n"}  <Text>
+                <Text style={estilos.aplicacaoContent}>{aplicacao1}{"\n"}{"\n"}</Text>
             </Text>
             </Text>
 
@@ -70,9 +66,7 @@ export default function Conteudo({ route }) {
                 <Text style={estilos.aplicacaoResume}>{aplicacao.app5.resumo}</Text>
             </Text>
             </Text>
-
-            
-
+ */}
             <TouchableOpacity onPress={() => {  }}>
             <Text style={estilos.footerText}>Reportar esta palavra<Icon name="report" size={24} color="red" />{"\n"}  <Text>
             </Text>

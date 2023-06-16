@@ -49,12 +49,18 @@ export default StyleSheet.create({
     textAlign: "center",
     marginTop: 20
   },
-  footerText: {
-    color: color.black,
-    fontSize: 16,
-    fontFamily: "sans-serif-condensed",
-    textAlign: "center",
-    padding: 10,
+  footerContainer: {
+  flex: 1,
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+  marginTop: "150%"
+},
+footerText: {
+  color: 'black',
+  fontSize: 16,
+  fontFamily: 'sans-serif-condensed',
+  textAlign: 'center',
+  padding: 10,
+}
 
-  },
 });

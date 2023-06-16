@@ -1,36 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ActivityIndicator, Button, FlatList, StyleSheet, Text, TextInput } from "react-native";
 import Item from "./item";
-import { Conteudo } from "../../../dicionario";
 import { View } from "react-native";
+import axios from 'axios';
+import { create } from 'axios-extensions';
 
 
 export default function Titulo(item) {
-    const [nextPage, setNextPage] = useState(1);
-    const [content, setContent] = useState([Conteudo]);
-    const [loading, setLoading] = useState(false);
-    const [searchText, setSearchText] = useState('');
-    const [showPopup, setShowPopup] = useState(true);
+  const [nextPage, setNextPage] = useState(1);
+  const [content, setContent] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [searchText, setSearchText] = useState('');
+  const [showPopup, setShowPopup] = useState(true);
 
 
-    const loadContent = () => {
-        const contentLimited = Conteudo;
-        const page = nextPage;
-        const content = contentLimited.filter((item) => item.id <= page)
 
-        setContent(content)
-        setNextPage(page + 1)
-        setLoading(false)
+  const getTitulos = () => {
+        axios.get('http://10.0.0.206:4000/palavras')
+            .then(res => {
+                const titu = res.data;
+                setContent(titu);
+            })
     }
 
+    useEffect(() => {
+        getTitulos()
+    }, [])
 
-    const filteredContent = searchText
-        ? content.filter(
-            (item) =>
-                item.titulo &&
-                item.titulo.toLowerCase().includes(searchText.toLowerCase())
-        )
-        : content;
+
+
+  const loadContent = () => {
+    const contentLimited = content;
+    const page = nextPage;
+    const limitedData = contentLimited.filter((item) => item.id <= page);
+
+    setContent([...content, ...limitedData]);
+    setNextPage(page + 1);
+    setLoading(false);
+  };
+
+  const filteredContent = searchText
+    ? content.filter(
+        (item) =>
+          item.titulo &&
+          item.titulo.toLowerCase().includes(searchText.toLowerCase())
+      )
+    : content;
+
+console.log(content,"zeca")
 
     return (
         <>
@@ -89,8 +106,7 @@ export default function Titulo(item) {
             />
             <FlatList
                 data={filteredContent}
-                renderItem={({ item }) => <Item {...item} />}
-                keyExtractor={({ id }) => String(id)}
+                renderItem={({ item, index }) => <Item index={index} {...item} />}
                 onEndReached={loadContent}
                 onEndReachedThreshold={0.1}
             // ListFooterComponent={<Load Load={loading} />}
