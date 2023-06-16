@@ -1,21 +1,35 @@
 version: "3.9"
 
 services:
-  erudismo_app:
-    container_name: erudismo_app
+  erudismo_feeds:
+    container_name: erudismo_feeds
     image: erudismo_app_img:1.0.0
-    build: .
+    build: apis
     ports:
-      - "4000:4000"
+      - "4001:4000"
     environment:
       - DB_URL=postgresql://postgres:postgres@erudismo_db:5432/erudismo_db
+    volumes:
+      - ./apis/feeds:/app
+    depends_on:
+      - erudismo_db
+  erudismo_detalhes:
+    container_name: erudismo_detalhes
+    image: erudismo_app_img:1.0.0
+    build: apis
+    ports:
+      - "4002:4000"
+    environment:
+      - DB_URL=postgresql://postgres:postgres@erudismo_db:5432/erudismo_db
+    volumes:
+      - ./apis/detalhes:/app
     depends_on:
       - erudismo_db
   erudismo_db:
     container_name: erudismo_db
     image: postgres:12
     ports:
-      - "5432:5432"
+      - "4003:5432"
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
